@@ -9,12 +9,18 @@ const Root = styled.div`
   flex-direction: column;
 `
 
-const App = () => {
-  return (
-    <Root>
-      Root
-    </Root>
-  )
+class App extends React.Component {
+  componentDidMount = () => {
+  }
+
+  render() {
+    return (
+      <Root>
+        Root
+      </Root>
+
+    )
+  }
 }
 
 export default App

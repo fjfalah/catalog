@@ -11,6 +11,38 @@ const config = {
 }
 
 app.initializeApp(config)
+
 const db = app.firestore()
 
-export { db }
+const request = ({ collection, filters, orders }) => {
+  let collect = db.collection(collection)
+
+  if (filters) {
+    filters.map((filter) => {
+      const { key, operator, value } = filter
+      collect = collect.where(key, operator, value)
+      return collect
+    })
+  }
+
+  if (orders) {
+    orders.map((order) => {
+      const { key, operator, limit } = order
+
+      if (limit) {
+        collect = collect.orderBy(key, operator).limit(limit)
+      }
+
+      collect = collect.orderBy(key, operator)
+
+      return collect
+    })
+  }
+
+  return collect
+}
+
+export default {
+  db,
+  request,
+}
