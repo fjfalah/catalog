@@ -2,6 +2,7 @@ const color = {
   white: '#ffffff',
   black: '#000000',
   grey10: '#e8e8e8',
+  purple: '#ac145a',
 }
 
 const font = {

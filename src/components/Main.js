@@ -5,8 +5,8 @@ const Main = styled.main`
   position: relative;
   max-width: ${theme.mobile.maxWidth};
   width: 100%;
-  z-index: -1;
   min-height: 100vh;
+  padding-top: 56px;
 `
 
 export default Main

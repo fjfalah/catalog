@@ -15,6 +15,7 @@ const Root = styled(Flex)`
 `
 
 const NavbarWrapper = styled.div`
+  padding: 0 10px;
   max-width: ${theme.mobile.maxWidth};
   width: 100%;
   height: 100%;
