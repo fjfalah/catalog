@@ -1,33 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
-import { actionProductsGetAll, actionProductsGetAllFilter } from './store/actions/productsActions'
+import {
+  Router, Route, Switch, Redirect,
+} from 'react-router-dom'
+import { GlobalStyles } from './components'
+import history from './routes/history'
+import { Products, ProductDetail } from './pages'
 
 const Root = styled.div`
   height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
 `
 
-class App extends React.Component {
-  componentDidMount = () => {
-    this.props.actionProductsGetAll()
-    this.props.actionProductsGetAllFilter()
-  }
-
-  render() {
-    return (
+const App = () => {
+  return (
+    <>
       <Root>
-        Root
+        <Router history={history}>
+          <Switch>
+            <Route path="/" exact component={Products} />
+            <Route path="/products/:slug" exact component={ProductDetail} />
+          </Switch>
+        </Router>
       </Root>
-
-    )
-  }
+      <GlobalStyles />
+    </>
+  )
 }
 
-export default connect(null, {
-  actionProductsGetAll,
-  actionProductsGetAllFilter,
-})(App)
+export default App
