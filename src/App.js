@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
+import { actionProductsGetAll, actionProductsGetAllFilter } from './store/actions/productsActions'
 
 const Root = styled.div`
   height: 100vh;
@@ -11,6 +13,8 @@ const Root = styled.div`
 
 class App extends React.Component {
   componentDidMount = () => {
+    this.props.actionProductsGetAll()
+    this.props.actionProductsGetAllFilter()
   }
 
   render() {
@@ -23,4 +27,7 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default connect(null, {
+  actionProductsGetAll,
+  actionProductsGetAllFilter,
+})(App)

@@ -1,9 +1,14 @@
 import { from, of } from 'rxjs'
 import {
-  switchMap, tap, catchError,
+  switchMap, catchError,
 } from 'rxjs/operators'
-import { PRODUCTS_GET_ALL } from '../actionTypes'
-import { actionProductsGetAllF, actionProductsGetAllR } from '../actions/productsActions'
+import { PRODUCTS_GET_ALL, PRODUCTS_GET_ALL_FILTER } from '../actionTypes'
+import {
+  actionProductsGetAllF,
+  actionProductsGetAllR,
+  actionProductsGetAllFilterF,
+  actionProductsGetAllFilterR,
+} from '../actions/productsActions'
 import { productsServices } from '../../services'
 
 
@@ -18,6 +23,18 @@ const productsGetAllEpic = (action$) => {
   )
 }
 
+const productsGetAllFilterEpic = (action$) => {
+  return action$.ofType(PRODUCTS_GET_ALL_FILTER).pipe(
+    switchMap(() => {
+      return from(productsServices.getAllFilterProducts()).pipe(
+        switchMap((data) => of(actionProductsGetAllFilterF(data))),
+        catchError((err) => actionProductsGetAllFilterR(err))
+      )
+    })
+  )
+}
+
 export default {
   productsGetAllEpic,
+  productsGetAllFilterEpic,
 }
