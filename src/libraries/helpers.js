@@ -12,7 +12,25 @@ const currencyFormat = (rawNum, type = ',') => {
   return (type === ',') ? parts.join('.') : parts.join(',')
 }
 
+const toPascalCase = (str) => {
+  if (str.length < 2) return str
+  const firstLetter = str[0].toUpperCase()
+  return firstLetter + str.slice(1)
+}
+
+const toSentenceCase = (str) => {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+const toCapitalizeEachWord = (str) => {
+  const words = str.split(' ').map((word) => toSentenceCase(word))
+  return words.join(' ')
+}
+
 export default {
   getVariantByKey,
   currencyFormat,
+  toPascalCase,
+  toSentenceCase,
+  toCapitalizeEachWord,
 }

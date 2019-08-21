@@ -45,7 +45,7 @@ class ProductDetail extends React.Component {
         </Main>
       )
     }
-    console.log(product)
+
     const { images } = product
 
     return (

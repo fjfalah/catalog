@@ -11,6 +11,22 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
+  .fade-in {
+    animation: Fade .3s ease-in;
+    user-select: none;
+    
+    @keyframes Fade {
+      from {
+        opacity: 0;
+        transform: scale(.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
 `
 
 export default GlobalStyles

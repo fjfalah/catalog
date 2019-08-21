@@ -14,8 +14,9 @@ import { productsServices } from '../../services'
 
 const productsGetAllEpic = (action$) => {
   return action$.ofType(PRODUCTS_GET_ALL).pipe(
-    switchMap(() => {
-      return from(productsServices.getAllProducts()).pipe(
+    switchMap((action) => {
+      const { filters, orders } = action.payload
+      return from(productsServices.getAllProducts(filters, orders)).pipe(
         switchMap((data) => of(actionProductsGetAllF(data))),
         catchError((err) => actionProductsGetAllR(err))
       )

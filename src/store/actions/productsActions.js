@@ -7,8 +7,12 @@ import {
   PRODUCTS_GET_ALL_FILTER_R,
 } from '../actionTypes'
 
-export const actionProductsGetAll = () => ({
+export const actionProductsGetAll = (filters, orders) => ({
   type: PRODUCTS_GET_ALL,
+  payload: {
+    filters,
+    orders,
+  },
 })
 
 export const actionProductsGetAllF = (data) => ({

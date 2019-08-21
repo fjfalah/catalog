@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Flex, Navbar } from '@/components'
+import { Filter } from '../../../containers'
 
 
 const NavWrapper = styled(Flex)`
@@ -11,24 +12,40 @@ const NavWrapper = styled(Flex)`
   }
 `
 
-const FilterWrapper = styled.div`
+const FilterWrapper = styled(Flex)`
   img {
     height: 20px;
     margin-left: 15px;
   }
 `
 
+const ButtonFilter = styled.div`
+  cursor: pointer;
+`
+
+const ButtonSearch = styled.div`
+  cursor: pointer;
+`
+
 const NavTop = () => {
+  const [modalFilterToggle, setModalFilterToggle] = useState(false)
   return (
-    <Navbar>
-      <NavWrapper ai="center" jc="space-between">
-        <img src={require('@/assets/images/logo-sorabel.png')} alt="SORABEL" />
-        <FilterWrapper>
-          <img src={require('@/assets/icons/search-interface-symbol.svg')} alt="" />
-          <img src={require('@/assets/icons/equalization.svg')} alt="" />
-        </FilterWrapper>
-      </NavWrapper>
-    </Navbar>
+    <>
+      <Filter show={modalFilterToggle} handleOnClose={setModalFilterToggle} />
+      <Navbar>
+        <NavWrapper ai="center" jc="space-between">
+          <img src={require('@/assets/images/logo-sorabel.png')} alt="SORABEL" />
+          <FilterWrapper>
+            <ButtonSearch>
+              <img src={require('@/assets/icons/search-interface-symbol.svg')} alt="" />
+            </ButtonSearch>
+            <ButtonFilter onClick={() => setModalFilterToggle(!modalFilterToggle)}>
+              <img src={require('@/assets/icons/equalization.svg')} alt="" />
+            </ButtonFilter>
+          </FilterWrapper>
+        </NavWrapper>
+      </Navbar>
+    </>
   )
 }
 

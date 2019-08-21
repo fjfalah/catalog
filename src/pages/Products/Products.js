@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Main, Box } from '@/components'
+import { Main } from '@/components'
 import { actionProductsGetAll, actionProductsGetAllFilter } from '../../store/actions/productsActions'
 import NavTop from './containers/NavTop'
 import ProductItems from './containers/ProductItems'
+import Sort from './containers/Sort'
 
 
 class Products extends React.Component {
@@ -14,13 +15,15 @@ class Products extends React.Component {
 
   render() {
     const { products } = this.props
-    return (
-      <Main>
-        <NavTop />
-        <Box h="10" />
-        <ProductItems products={products} />
-      </Main>
 
+    return (
+      <>
+        <Main>
+          <NavTop />
+          <Sort />
+          <ProductItems products={products} />
+        </Main>
+      </>
     )
   }
 }

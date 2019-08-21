@@ -21,6 +21,8 @@ export default (state = initialState, action) => {
     return {
       ...state,
       isLoading: true,
+      list: null,
+
     }
   case PRODUCTS_GET_ALL_F:
     return {

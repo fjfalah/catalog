@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {
-  Router, Route, Switch, Redirect,
+  Router, Route, Switch,
 } from 'react-router-dom'
 import { GlobalStyles } from './components'
 import history from './routes/history'
