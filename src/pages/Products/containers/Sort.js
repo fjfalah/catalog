@@ -5,7 +5,7 @@ import {
   Button, Text, Flex, Card,
 } from '../../../components'
 import theme from '../../../constants/theme'
-import { helpers } from '../../../libraries'
+import { helpers, firebaseHelpers } from '../../../libraries'
 import { actionProductsGetAll } from '../../../store/actions/productsActions'
 
 const Root = styled.div`
@@ -53,25 +53,6 @@ const SortList = ({ data, handleChangeSort }) => {
   )
 }
 
-const setOrder = (sort) => {
-  switch (sort) {
-  case 'terbaru':
-    return null
-
-  case 'terpopuler':
-    return [{ key: 'favouriteCount', operator: 'desc' }]
-
-  case 'termurah':
-    return [{ key: 'price.amount' }]
-
-  case 'termahal':
-    return [{ key: 'price.amount', operator: 'desc' }]
-
-  default:
-    return null
-  }
-}
-
 const Sort = (props) => {
   const sortData = ['terbaru', 'terpopuler', 'termurah', 'termahal']
   const [activeSort, setActiveSort] = useState('terbaru')
@@ -82,7 +63,7 @@ const Sort = (props) => {
     setShowSortList(isShowList)
     props.actionProductsGetAll(
       null,
-      setOrder(sort)
+      firebaseHelpers.setOrder(sort)
     )
   }
 
@@ -107,6 +88,10 @@ const Sort = (props) => {
   )
 }
 
-export default connect(null, {
+const mapStateToProps = (state) => ({
+  setFilter: state.products.setFilter,
+})
+
+export default connect(mapStateToProps, {
   actionProductsGetAll,
 })(Sort)
