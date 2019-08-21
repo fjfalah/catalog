@@ -23,10 +23,6 @@ const ButtonFilter = styled.div`
   cursor: pointer;
 `
 
-const ButtonSearch = styled.div`
-  cursor: pointer;
-`
-
 const NavTop = () => {
   const [modalFilterToggle, setModalFilterToggle] = useState(false)
   return (
@@ -36,9 +32,6 @@ const NavTop = () => {
         <NavWrapper ai="center" jc="space-between">
           <img src={require('@/assets/images/logo-sorabel.png')} alt="SORABEL" />
           <FilterWrapper>
-            <ButtonSearch>
-              <img src={require('@/assets/icons/search-interface-symbol.svg')} alt="" />
-            </ButtonSearch>
             <ButtonFilter onClick={() => setModalFilterToggle(!modalFilterToggle)}>
               <img src={require('@/assets/icons/equalization.svg')} alt="" />
             </ButtonFilter>

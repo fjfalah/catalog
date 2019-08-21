@@ -44,17 +44,10 @@ const setPrice = (prices) => {
   }
 }
 
-// const setPrice = (prices) => {
-//   const price = []
-//   prices.map((item) => [...price, priceCategory(item)])
-//   console.log(price)
-//   return price
-// }
-
 const setColor = (colors) => {
   const color = []
   colors.map((item) => {
-    color.push({
+    return color.push({
       key: `colorVariant.all.${item}`, operator: '==', value: true,
     })
   })
@@ -65,7 +58,7 @@ const setColor = (colors) => {
 const setSize = (sizes) => {
   const size = []
   sizes.map((item) => {
-    size.push({
+    return size.push({
       key: `sizeVariant.all.${item}`, operator: '==', value: true,
     })
   })

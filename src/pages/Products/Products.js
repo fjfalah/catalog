@@ -8,7 +8,7 @@ import Sort from './containers/Sort'
 
 class Products extends React.Component {
   componentDidMount = () => {
-    // this.props.actionProductsGetAll()
+    this.props.actionProductsGetAll()
     this.props.actionProductsGetAllFilter()
   }
 
