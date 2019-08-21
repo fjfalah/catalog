@@ -7,6 +7,13 @@ import theme from '../../../constants/theme'
 
 const NavWrapper = styled(Flex)`
   height: 100%;
+
+  > div:first-child {
+    width: 70%
+  }
+  > div:last-child-child {
+    width: 30%
+  }
 `
 
 const ButtonBack = styled(Link)`
@@ -17,7 +24,6 @@ const ButtonBack = styled(Link)`
 `
 
 const Title = styled(Text)`
-  max-width: 70%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
