@@ -1,8 +1,10 @@
 import { firebase } from '../libraries'
 
-const getAllProducts = () => {
+const getAllProducts = (filters, orders) => {
   return firebase.request({
     collection: 'products',
+    filters,
+    orders,
   })
     .get()
     .then((querySnapshot) => querySnapshot.docs.map((doc) => doc.data()))

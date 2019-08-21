@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Main , Box } from '@/components'
+import { Main, Box } from '@/components'
 import { actionProductsGetAll, actionProductsGetAllFilter } from '../../store/actions/productsActions'
 import NavTop from './containers/NavTop'
 import ProductItems from './containers/ProductItems'

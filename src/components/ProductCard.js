@@ -36,7 +36,7 @@ const Title = styled(Text)`
   white-space: nowrap;
   font-weight: 100;
   text-overflow: ellipsis;
-  overflow: auto;
+  overflow: hidden;
 `
 
 const ButtonDetail = styled(Link)`
