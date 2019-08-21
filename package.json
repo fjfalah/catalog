@@ -9,7 +9,7 @@
     "build": "webpack --mode production",
     "lint": "esw ."
   },
-  "author": "kresnahendri",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
