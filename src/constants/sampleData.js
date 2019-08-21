@@ -1,10 +1,41 @@
 // import to firestore query
-// data.map((data) => {
-//   firebase.db.collection('products').doc(data.id.split('-').join('')).set(data)
-//     .then(() => {
-//       console.log('Document successfully written!')
-//     })
-// })
+
+// setArrayToObj = (arr) => {
+//   return arr.reduce((a, key) => {
+//     const k = key.split(' ').join('')
+//     return Object.assign(a, { [k]: true })
+//   }, {})
+// }
+
+// setSampleData = () => {
+//   const dataList = sampleData.data.map((item) => {
+//     const sizeAll = helpers.getVariantByKey({ variants: item.variants, key: 'size' })
+//     const sizeReadyStock = helpers.getVariantByKey({ variants: item.variants, key: 'size', isReadyStock: true })
+//     const colorReadyStock = helpers.getVariantByKey({ variants: item.variants, key: 'color', isReadyStock: true })
+//     const colorAll = helpers.getVariantByKey({ variants: item.variants, key: 'color' })
+
+//     return {
+//       ...item,
+//       sizeVariant: {
+//         readyStock: this.setArrayToObj(sizeReadyStock),
+//         all: this.setArrayToObj(sizeAll),
+//       },
+//       colorVariant: {
+//         readyStock: this.setArrayToObj(colorReadyStock),
+//         all: this.setArrayToObj(colorAll),
+//       },
+//     }
+//   })
+
+//   dataList.map((data) => {
+//     firebase.db.collection('products').doc(data.id.split('-').join('')).set(data)
+//       .then(() => {
+//         console.log('Document successfully written!')
+//       })
+//   })
+
+//   console.log(dataList)
+// }
 
 const data = [
   {

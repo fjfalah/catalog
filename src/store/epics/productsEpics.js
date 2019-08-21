@@ -1,4 +1,4 @@
-import { from, of } from 'rxjs'
+import { from, of, concat } from 'rxjs'
 import {
   switchMap, catchError,
 } from 'rxjs/operators'
@@ -8,6 +8,8 @@ import {
   actionProductsGetAllR,
   actionProductsGetAllFilterF,
   actionProductsGetAllFilterR,
+  actionProductsSetFilter,
+  actionProductsSetOrder,
 } from '../actions/productsActions'
 import { productsServices } from '../../services'
 
@@ -17,7 +19,11 @@ const productsGetAllEpic = (action$) => {
     switchMap((action) => {
       const { filters, orders } = action.payload
       return from(productsServices.getAllProducts(filters, orders)).pipe(
-        switchMap((data) => of(actionProductsGetAllF(data))),
+        switchMap((data) => concat(
+          of(actionProductsGetAllF(data)),
+          of(actionProductsSetFilter(filters)),
+          of(actionProductsSetOrder(orders)),
+        )),
         catchError((err) => actionProductsGetAllR(err))
       )
     })

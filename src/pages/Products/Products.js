@@ -6,7 +6,6 @@ import NavTop from './containers/NavTop'
 import ProductItems from './containers/ProductItems'
 import Sort from './containers/Sort'
 
-
 class Products extends React.Component {
   componentDidMount = () => {
     this.props.actionProductsGetAll()

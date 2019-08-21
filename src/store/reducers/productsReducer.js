@@ -5,6 +5,9 @@ import {
   PRODUCTS_GET_ALL_FILTER,
   PRODUCTS_GET_ALL_FILTER_R,
   PRODUCTS_GET_ALL_FILTER_F,
+  PRODUCTS_SET_FILTER,
+  PRODUCTS_SET_ORDER,
+  PRODUCTS_RESET_FILTER,
 } from '../actionTypes'
 
 const initialState = {
@@ -12,6 +15,8 @@ const initialState = {
   list: null,
   filterList: null,
   errorMessage: '',
+  setFilter: null,
+  setOrder: null,
 }
 
 export default (state = initialState, action) => {
@@ -22,7 +27,8 @@ export default (state = initialState, action) => {
       ...state,
       isLoading: true,
       list: null,
-
+      setFilter: null,
+      setOrder: null,
     }
   case PRODUCTS_GET_ALL_F:
     return {
@@ -35,6 +41,21 @@ export default (state = initialState, action) => {
       ...state,
       isLoading: false,
       filterList: action.payload,
+    }
+  case PRODUCTS_SET_FILTER:
+    return {
+      ...state,
+      setFilter: action.payload,
+    }
+  case PRODUCTS_SET_ORDER:
+    return {
+      ...state,
+      setOrder: action.payload,
+    }
+  case PRODUCTS_RESET_FILTER:
+    return {
+      ...state,
+      setFilter: null,
     }
   case PRODUCTS_GET_ALL_R:
   case PRODUCTS_GET_ALL_FILTER_R:

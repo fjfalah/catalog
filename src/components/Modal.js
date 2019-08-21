@@ -34,7 +34,7 @@ const Modal = ({ show, onClose, children }) => {
     <>
       <Background onClick={onClose} />
       <Root className="fade-in">
-        <Flex jc="Flex-end">
+        <Flex jc="flex-start">
           <ButtonClose onClick={onClose}>
             <img src={require('@/assets/icons/close-circular-button-symbol.svg')} alt="" />
           </ButtonClose>

@@ -5,6 +5,9 @@ import {
   PRODUCTS_GET_ALL_FILTER,
   PRODUCTS_GET_ALL_FILTER_F,
   PRODUCTS_GET_ALL_FILTER_R,
+  PRODUCTS_SET_FILTER,
+  PRODUCTS_SET_ORDER,
+  PRODUCTS_RESET_FILTER,
 } from '../actionTypes'
 
 export const actionProductsGetAll = (filters, orders) => ({
@@ -37,4 +40,18 @@ export const actionProductsGetAllFilterF = (data) => ({
 export const actionProductsGetAllFilterR = (error) => ({
   type: PRODUCTS_GET_ALL_FILTER_R,
   payload: error,
+})
+
+export const actionProductsSetFilter = (data) => ({
+  type: PRODUCTS_SET_FILTER,
+  payload: data,
+})
+
+export const actionProductsSetOrder = (data) => ({
+  type: PRODUCTS_SET_ORDER,
+  payload: data,
+})
+
+export const actionProductsResetFilter = () => ({
+  type: PRODUCTS_RESET_FILTER,
 })
