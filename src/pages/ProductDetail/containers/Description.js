@@ -22,6 +22,9 @@ const Description = ({ product }) => {
   const [isDescShow, setIsDescShow] = useState(false)
   const { descriptionMarkdown, detailMarkdown, tryOutfit } = product
 
+  const description = descriptionMarkdown !== null ? descriptionMarkdown : '-'
+  const detail = detailMarkdown !== null ? detailMarkdown : '-'
+
   return (
     <Card>
       <TitleWrapper jc="space-between" ai="center" onClick={() => setIsDescShow(!isDescShow)}>
@@ -38,12 +41,12 @@ const Description = ({ product }) => {
             <Box h="1" withSeparator />
             <SubContentWrapper>
               <Text variant="caption" color={theme.color.black60}>DETAIL</Text>
-              <Text dangerouslySetInnerHTML={{ __html: marked.parse(detailMarkdown) }} />
+              <Text dangerouslySetInnerHTML={{ __html: marked.parse(detail) }} />
             </SubContentWrapper>
             <Box h="1" withSeparator />
             <SubContentWrapper>
               <Text variant="caption" color={theme.color.black60}>PANDUAN UKURAN</Text>
-              <Text dangerouslySetInnerHTML={{ __html: marked.parse(descriptionMarkdown) }} />
+              <Text dangerouslySetInnerHTML={{ __html: marked.parse(description) }} />
             </SubContentWrapper>
             <Box h="1" withSeparator />
             <SubContentWrapper>
